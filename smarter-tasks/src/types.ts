@@ -1,5 +1,5 @@
-
-
 export interface TaskItem {
-    title: string;
-  }
+  todoTitle: string;
+  todoDescription: string;
+  todoDueDate: string;
+}

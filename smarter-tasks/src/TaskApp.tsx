@@ -38,14 +38,13 @@ class TaskApp extends React.Component<TaskAppProp, TaskAppState> {
             <h1 className="text-slate-500 font-bold text-center mb-2">
               Pending
             </h1>
-            <TaskForm  addTask={this.addTask} />
+            <TaskForm addTask={this.addTask} />
             <TaskList tasks={this.state.tasks} />
           </div>
         </div>
       </div>
     );
   }
-
 }
 
 export default TaskApp;
