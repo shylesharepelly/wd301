@@ -25,18 +25,15 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
     
   };
   inputRef = React.createRef<HTMLInputElement>();
+  
   todoTitleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     console.log(`${event.target.value}`);
     this.setState({ todoTitle: event.target.value });
   };
-  todoDescriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (
-    event
-  ) => {
-    console.log(`${event.target.value}`);
+  todoDescriptionChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
     this.setState({ todoDescription: event.target.value });
   };
   todoDueDateChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
-    console.log(`${event.target.value}`);
     this.setState({ todoDueDate: event.target.value });
   };
   constructor(props: TaskFormProps) {
