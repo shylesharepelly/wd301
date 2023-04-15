@@ -21,9 +21,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
       this.props.addTask(newTask);
       this.setState({ todoTitle: "", todoDescription: "", todoDueDate: "" });
     }
-    else{
-      this.setState({ todoTitle: "null", todoDescription: "null", todoDueDate: "null" });
-    }
+    
     
   };
   inputRef = React.createRef<HTMLInputElement>();
