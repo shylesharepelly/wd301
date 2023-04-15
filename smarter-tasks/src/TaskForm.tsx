@@ -12,13 +12,19 @@ interface TaskFormState {
 class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
   addTask: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    const newTask = {
-      todoTitle: this.state.todoTitle,
-      todoDescription: this.state.todoDescription,
-      todoDueDate: this.state.todoDueDate,
-    };
-    this.props.addTask(newTask);
-    this.setState({ todoTitle: "", todoDescription: "", todoDueDate: "" });
+    if(this.state.todoTitle.length>0  && this.state.todoDueDate.length){
+      const newTask = {
+        todoTitle: this.state.todoTitle,
+        todoDescription: this.state.todoDescription,
+        todoDueDate: this.state.todoDueDate,
+      };
+      this.props.addTask(newTask);
+      this.setState({ todoTitle: "", todoDescription: "", todoDueDate: "" });
+    }
+    else{
+      this.setState({ todoTitle: "null", todoDescription: "null", todoDueDate: "null" });
+    }
+    
   };
   inputRef = React.createRef<HTMLInputElement>();
   todoTitleChanged: React.ChangeEventHandler<HTMLInputElement> = (event) => {
@@ -71,7 +77,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
             onChange={this.todoDescriptionChanged}
           />
           <h3> </h3>
-          <button type="submit">addTaskButton</button>
+          <button type="submit" id="addTaskButton">addTaskButton</button>
         </div>
       </form>
     );
