@@ -70,6 +70,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
             value={this.state.todoDescription}
             id="todoDescription"
             onChange={this.todoDescriptionChanged}
+            required
           />
           <h3> </h3>
           <button type="submit" id="addTaskButton">addTaskButton</button>
