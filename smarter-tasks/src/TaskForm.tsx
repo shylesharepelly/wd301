@@ -47,7 +47,7 @@ class TaskForm extends React.Component<TaskFormProps, TaskFormState> {
   render() {
     return (
       <form onSubmit={this.addTask}>
-        <div className="TaskItem">
+        <div >
           <h3>Title:</h3>
           <input
             type="text"
