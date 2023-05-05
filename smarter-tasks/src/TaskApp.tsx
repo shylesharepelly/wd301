@@ -31,7 +31,12 @@ const TaskApp = (props: TaskAppProp) => {
   const addTask = (task: TaskItem) => {
     setTaskAppState({ tasks: [...taskAppState.tasks, task] });
   };
+  const removeTask=(title: string) =>{
+    setTaskAppState({tasks: taskAppState.tasks.filter((task)=>
+      task.todoTitle !== title),
+    });
   
+  }
 
 
   return (
@@ -50,7 +55,7 @@ const TaskApp = (props: TaskAppProp) => {
               Pending
             </h1>
             <TaskForm addTask={addTask} />
-            <TaskList tasks={taskAppState.tasks} />
+            <TaskList tasks={taskAppState.tasks} removeTask={removeTask} />
           </div>
         </div>
       </div>

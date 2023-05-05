@@ -4,6 +4,7 @@ import { TaskItem } from "./types";
 
 interface Props {
   tasks: TaskItem[];
+  removeTask: (title: string) => void;
 }
 
 
@@ -14,6 +15,7 @@ const TaskList= (props: Props) => {
       todoTitle={task.todoTitle}
       todoDescription={task.todoDescription}
       todoDueDate={task.todoDueDate}
+      removeTask={props.removeTask}
     />
   ));
   return <>{list}</>;
