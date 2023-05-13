@@ -1,5 +1,7 @@
 import React from "react";
 import "./TaskCard.css";
+import { Routes, Route } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 interface TaskItem {
   id: number;
@@ -12,12 +14,13 @@ interface TaskItem {
 const Task = (props: TaskItem) => {
   return (
     <div className="TaskItem shadow-md border border-slate-100 flex justify-between">
+      
       <li>
-        <h2 className="text-base font-bold my-1">{props.todoTitle}</h2>
-        <p className="text-sm text-slate-500">{props.todoDueDate}</p>
-        <p className="text-sm text-slate-500">
-          Description: {props.todoDescription}
-        </p>
+        <div>
+        <Link to={`/tasks/${props.id}`}>
+            <h2 className="text-base font-bold my-1">{props.todoTitle}</h2>
+        </Link>
+        </div>
         <button
           className="deleteTaskButton"
           onClick={() => props.removeTask(props.id)}
