@@ -17,7 +17,7 @@ const DashboardPages : React.FC = () =>{
     }
 
     return (
-        <div className='text-center items-center'>
+        <div className='App text-center items-center'>
         <div className=''>
             <h1>Welcome {udata.name}</h1>
         </div>
