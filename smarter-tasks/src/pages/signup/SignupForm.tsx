@@ -32,7 +32,7 @@ const SignupForm: React.FC = () => {
         
         //<Navigate to="/dashboard" />
 
-        navigate("/dashboard");
+        navigate("/account");
       } catch (error) {
         console.error('Sign-up failed:', error);
       }
