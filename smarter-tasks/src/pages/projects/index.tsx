@@ -1,5 +1,6 @@
 import ProjectList from "./ProjectList";
 import NewProject from "./NewProject";
+import ProjectListItems from "./ProjectList";
 
 const Projects = () => {
   return (
@@ -9,7 +10,7 @@ const Projects = () => {
         <NewProject />
       </div>
       <ProjectList />
-    </>
+    </> 
   )
 }
 export default Projects;

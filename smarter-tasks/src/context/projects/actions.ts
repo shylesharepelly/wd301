@@ -34,17 +34,11 @@ export const addProject = async (dispatch: any, args: any) => {
         return { ok: false, error: data.errors[0].message }
       }
   
-      // And if everything goes well with the API call, we will dispatch an action, 
-      // with `type` set to `ADD_PROJECT_SUCCESS` and in `payload` we will send the 
-      // new project `data`.
       dispatch({ type: 'ADD_PROJECT_SUCCESS', payload: data });
   
-      // Next, I'll return a status called "ok", with value `true`
-      // as everything went well.
       return { ok: true }
     } catch (error) {
       console.error('Operation failed:', error);
-    // Dialogue 5: And for error I'll return status called "ok", with value `false`.
       return { ok: false, error }
     }
   };
