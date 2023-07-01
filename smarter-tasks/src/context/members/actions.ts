@@ -34,7 +34,7 @@ export const addUser = async (dispatch: any, args: any) => {
         return { ok: false, error: data.errors[0].message }
       }
   
-      dispatch({ type: 'ADD_MEMBER_SUCCESS', payload: data });
+      dispatch({ type: 'ADD_MEMBER_SUCCESS', payload: data.user });
   
       return { ok: true }
     } catch (error) {
@@ -57,7 +57,7 @@ export const addUser = async (dispatch: any, args: any) => {
       if (data.errors && data.errors.length > 0) {
         return { ok: false, error: data.errors[0].message }
       }
-      dispatch({ type: 'DELETE_MEMBERS_SUCCESS', payload: id });
+      dispatch({ type: 'DELETE_MEMBER_SUCCESS', payload: id });
       return { ok: true }
     } catch (error) {
       console.error('Operation failed:', error);
