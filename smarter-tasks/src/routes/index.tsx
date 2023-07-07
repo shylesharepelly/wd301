@@ -9,6 +9,7 @@ import Members from "../pages/members"
 import Logout from "../pages/logout";
 import ProjectContainer from "../pages/projects/ProjectContainer";
 import ProjectDetails from "../pages/project_details";
+import NewTask from "../pages/tasks/NewTask";
 
 const router = createBrowserRouter([
     { path: "/", element: <Navigate to="/account/projects" replace /> },
@@ -48,7 +49,7 @@ const router = createBrowserRouter([
                   path: "tasks",
                   children: [
                     { index: true, element: <Navigate to="../" replace /> },
-                    { path: "new", element: <>Show Modal window to create a task</> },
+                    { path: "new",  element: <NewTask /> },
                     {
                       path: ":taskID",
                       children: [{ index: true, element: <>Show Task Details</> }],
