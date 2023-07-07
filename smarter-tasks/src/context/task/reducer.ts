@@ -8,28 +8,63 @@ export const initialState: TaskListState = {
     isError: false,
     errorMessage: "",
   };
-export const taskReducer: Reducer<TaskListState, TaskActions> = (
-  state = initialState,
-  action
-) => {
-  switch (action.type) {
-    // Toggle the `isLoading` to true when request is initiated.
-    case TaskListAvailableAction.CREATE_TASK_REQUEST:
+  export const taskReducer: Reducer<TaskListState, TaskActions> = (
+    state = initialState,
+    action
+  ) => {
+    switch (action.type) {
+      // Update reducer to handle the actions dispatched on fetching tasks.
+      case TaskListAvailableAction.FETCH_TASKS_REQUEST:
+        return { ...state, isLoading: true };
+      case TaskListAvailableAction.FETCH_TASKS_SUCCESS:
+        return { ...state, isLoading: false, projectData: action.payload };
+      case TaskListAvailableAction.FETCH_TASKS_FAILURE:
+        return {
+          ...state,
+          isLoading: false,
+          isError: true,
+          errorMessage: action.payload,
+        };
+        case TaskListAvailableAction.DELETE_TASKS_REQUEST:
       return { ...state, isLoading: true };
-
-    // Toggle the `isLoading` to false when request is succesfull or errored.
-    case TaskListAvailableAction.CREATE_TASK_SUCCESS:
+    case TaskListAvailableAction.DELETE_TASKS_SUCCESS:
       return { ...state, isLoading: false };
-    case TaskListAvailableAction.CREATE_TASK_FAILURE:
+    case TaskListAvailableAction.DELETE_TASKS_FAILURE:
       return {
         ...state,
         isLoading: false,
         isError: true,
         errorMessage: action.payload,
       };
-    case TaskListAvailableAction.REORDER_TASKS:
-    return { ...state, isLoading: false, projectData: action.payload };
-    default:
-      return state;
-  }
-};
+
+      case TaskListAvailableAction.CREATE_TASK_REQUEST:
+        return { ...state, isLoading: true };
+      case TaskListAvailableAction.CREATE_TASK_SUCCESS:
+        return { ...state, isLoading: false };
+      case TaskListAvailableAction.CREATE_TASK_FAILURE:
+        return {
+          ...state,
+          isLoading: false,
+          isError: true,
+          errorMessage: action.payload,
+        };
+
+         // Toggle the loading state based on action
+    case TaskListAvailableAction.UPDATE_TASK_REQUEST:
+      return { ...state, isLoading: true };
+    case TaskListAvailableAction.UPDATE_TASK_SUCCESS:
+      return { ...state, isLoading: false };
+    case TaskListAvailableAction.UPDATE_TASK_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+        errorMessage: action.payload,
+      };
+      
+      case TaskListAvailableAction.REORDER_TASKS:
+        return { ...state, isLoading: false, projectData: action.payload };
+      default:
+        return state;
+    }
+  };
