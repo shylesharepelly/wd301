@@ -1,7 +1,8 @@
 
 import React, { createContext, useContext, useReducer } from "react";
 
-import { reducer, initialState, CommentsState, CommentsActions } from "./reducer";
+import { reducer, initialState, CommentsActions } from "./reducer";
+import {CommentsState} from "./types"
 
 const CommentsStateContext = createContext<CommentsState >(initialState);
 type CommentsDispatch = React.Dispatch<CommentsActions>;

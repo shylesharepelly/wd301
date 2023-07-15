@@ -1,4 +1,4 @@
-import {Comment,CommentsState} from "./types.ts"
+import {Comment,CommentsState} from "./types"
   
 
   export const initialState: CommentsState = {
