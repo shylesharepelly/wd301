@@ -1,24 +1,5 @@
-type User={
-id:number,
-email:string,
-name:string
-}
-
-interface Comment {
-    id: number,
-    description: string,
-    createdAt:string,
-    owner:number,
-    user:User,
-    task_id:number
-  }
+import {Comment,CommentsState} from "./types.ts"
   
-  export interface CommentsState {
-    comments: Comment[];
-    isLoading: boolean;
-    isError: boolean;
-    errorMessage: string;
-  }
 
   export const initialState: CommentsState = {
     comments: [],
@@ -27,7 +8,6 @@ interface Comment {
     errorMessage: ''
   };
 
-export type CommentsPayload = Omit<Comment, "id" | "createdAt" | "user" | "task_id">;
  
 export type CommentsActions = 
 | { type: 'FETCH_COMMENTS_REQUEST' }

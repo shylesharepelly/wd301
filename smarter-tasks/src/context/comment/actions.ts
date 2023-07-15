@@ -24,7 +24,7 @@ export const addComment = async (dispatch: any,projectID:string,taskID:string, c
       const response = await fetch(`${API_ENDPOINT}/projects/${projectID}/tasks/${taskID}/comments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', "Authorization": `Bearer ${token}` },
-        // Next, I'll pass the `args` here
+    
         body: JSON.stringify({description:comment}), 
       });
       if (!response.ok) {
