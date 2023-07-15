@@ -1,13 +1,17 @@
 import { Dialog, Transition, Listbox } from "@headlessui/react";
-import React, { Fragment, useState, useEffect } from "react";
+import  { Fragment, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useTasksDispatch, useTasksState } from "../../context/task/context";
+import { useCommentsDispatch } from "../../context/comment/context";
 import { updateTask } from "../../context/task/actions";
 import CheckIcon from "@heroicons/react/24/outline/CheckIcon";
 import { useProjectsState } from "../../context/projects/context";
 import { TaskDetailsPayload } from "../../context/task/types";
 import { useMembersState } from "../../context/members/context";
+import { fetchComments } from "../../context/comment/actions";
+import CommentList from "./CommentList";
+import NewComment from "./NewComment";
 
 // Helper function to format the date to YYYY-MM-DD format
 const formatDateForPicker = (isoDate: string) => {
@@ -26,6 +30,8 @@ type TaskFormUpdatePayload = TaskDetailsPayload & {
 
 const TaskDetails = () => {
   let [isOpen, setIsOpen] = useState(true);
+  
+  const commentDispatch = useCommentsDispatch();
 
   let { projectID, taskID } = useParams();
   let navigate = useNavigate();
@@ -41,6 +47,10 @@ const memberState = useMembersState();
     (project) => `${project.id}` === projectID
   )[0];
 
+  
+  useEffect(()=>{
+    fetchComments(commentDispatch,`${projectID}`, `${taskID}`);
+  },[taskID,projectID,commentDispatch])
 
 
   const selectedTask = taskListState.projectData.tasks[taskID ?? ""];
@@ -205,12 +215,17 @@ const memberState = useMembersState();
                       </button>
                     </form>
                   </div>
+                  
+                  <NewComment/>
+                  <CommentList/>
+                  
                 </Dialog.Panel>
               </Transition.Child>
             </div>
           </div>
         </Dialog>
       </Transition>
+
     </>
   );
 };
