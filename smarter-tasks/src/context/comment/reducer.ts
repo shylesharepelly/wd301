@@ -8,6 +8,7 @@ interface Comment {
     id: number,
     description: string,
     createdAt:string,
+    owner:number,
     user:User,
     task_id:number
   }

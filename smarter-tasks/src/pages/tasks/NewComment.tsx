@@ -28,7 +28,6 @@ const NewComment = () => {
 
         return (
             <div>
-                <h1>Add Comments</h1>
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <input
                     type="text"

@@ -206,6 +206,11 @@ const memberState = useMembersState();
                       >
                         Update
                       </button>
+
+                      <NewComment/>
+                  <CommentList/>
+
+                  
                       <button
                         type="submit"
                         onClick={closeModal}
@@ -216,8 +221,7 @@ const memberState = useMembersState();
                     </form>
                   </div>
                   
-                  <NewComment/>
-                  <CommentList/>
+                 
                   
                 </Dialog.Panel>
               </Transition.Child>

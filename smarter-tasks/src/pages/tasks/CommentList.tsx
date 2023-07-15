@@ -30,14 +30,13 @@ const formatDateForPicker = (isoDate: string) => {
 
 return (
     <>
-    <h1>comments</h1>
+    <h1 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-black">comments:</h1>
     {comments.map((comment) => (
-        <div key={comment.createdAt}>
-        <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{comment.description}</h5>
-        <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-white">{}</h5>
+        <div key={comment.createdAt} className="comment flex justify-between">
+        <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-black">{comment.description}</h5>
+        <h5 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-black">{comment.owner}</h5>
         </div>
        
-      
     ))} 
        
   </>
