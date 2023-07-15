@@ -3,7 +3,7 @@ import { fetchComments  , addComment} from "../../context/comment/actions";
 import { useCommentsDispatch } from "../../context/comment/context";
 import { useParams } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { CommentsPayload } from "../../context/comment/reducer";
+import { CommentsPayload } from "../../context/comment/types";
 import CommentList from "./CommentList";
 
 
