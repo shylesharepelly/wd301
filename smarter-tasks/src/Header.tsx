@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,7 +7,10 @@ const Header = () => {
       <div className="mx-auto px-4">
         <div className="flex justify-between">
           <div className="flex items-center">
-            <Link to="/" className="ml-6 text-gray-300 hover:text-white px-10 mr-5">
+            <Link
+              to="/"
+              className="ml-6 text-gray-300 hover:text-white px-10 mr-5"
+            >
               Home
             </Link>
             <Link to="/tasks" className="ml-6 text-gray-300 hover:text-white">
@@ -18,10 +21,10 @@ const Header = () => {
             <h2 className="text-white text-lg font-bold">Task Manager</h2>
           </div>
           <div className="flex items-center w-1/3 justify-end">
-           <Link to="/signin" className="ml-6 text-gray-300 hover:text-white">
-             Signout
-           </Link>
-         </div>
+            <Link to="/signin" className="ml-6 text-gray-300 hover:text-white">
+              Signout
+            </Link>
+          </div>
         </div>
       </div>
     </nav>

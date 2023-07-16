@@ -1,5 +1,5 @@
-import React from 'react';
-import ProjectListItems from './ProjectListItems';
+import React from "react";
+import ProjectListItems from "./ProjectListItems";
 
 const ProjectList: React.FC = () => {
   return (
@@ -8,4 +8,4 @@ const ProjectList: React.FC = () => {
     </div>
   );
 };
-export default ProjectList; 
+export default ProjectList;

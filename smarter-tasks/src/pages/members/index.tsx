@@ -1,4 +1,3 @@
-
 import NewMember from "./NewMember";
 import MemberList from "./MemberList";
 
@@ -11,6 +10,6 @@ const Members = () => {
       </div>
       <MemberList />
     </>
-  )
-}
+  );
+};
 export default Members;

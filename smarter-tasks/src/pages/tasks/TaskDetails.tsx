@@ -1,5 +1,5 @@
 import { Dialog, Transition, Listbox } from "@headlessui/react";
-import  { Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useTasksDispatch, useTasksState } from "../../context/task/context";
@@ -30,7 +30,7 @@ type TaskFormUpdatePayload = TaskDetailsPayload & {
 
 const TaskDetails = () => {
   let [isOpen, setIsOpen] = useState(true);
-  
+
   const commentDispatch = useCommentsDispatch();
 
   let { projectID, taskID } = useParams();
@@ -40,18 +40,16 @@ const TaskDetails = () => {
   const projectState = useProjectsState();
   const taskListState = useTasksState();
   const taskDispatch = useTasksDispatch();
-  
-const memberState = useMembersState();
+
+  const memberState = useMembersState();
 
   const selectedProject = projectState?.projects.filter(
     (project) => `${project.id}` === projectID
   )[0];
 
-  
-  useEffect(()=>{
-    fetchComments(commentDispatch,`${projectID}`, `${taskID}`);
-  },[taskID,projectID,commentDispatch])
-
+  useEffect(() => {
+    fetchComments(commentDispatch, `${projectID}`, `${taskID}`);
+  }, [taskID, projectID, commentDispatch]);
 
   const selectedTask = taskListState.projectData.tasks[taskID ?? ""];
   // Use react-form-hook to manage the form. Initialize with data from selectedTask.
@@ -153,52 +151,52 @@ const memberState = useMembersState();
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
 
-                      <h3><strong>Assignee</strong></h3>
-                        <Listbox
-                          value={selectedPerson}
-                          onChange={setSelectedPerson}
-                        >
-                          <Listbox.Button className="w-full border rounded-md py-4 px-3 my-2 text-gray-700 text-base text-left">
-                            {selectedPerson}
-                          </Listbox.Button>
-                          <Listbox.Options className="absolute mt-1 max-h-60 rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
-                            {memberState?.members.map((person) => (
-                              <Listbox.Option
-                                key={person.id}
-                                className={({ active }) =>
-                                  `relative cursor-default select-none py-2 pl-10 pr-4 ${
-                                    active
-                                      ? "bg-blue-100 text-blue-900"
-                                      : "text-gray-900"
-                                  }`
-                                }
-                                value={person.name}
-                              >
-                                {({ selected }) => (
-                                  <>
-                                    <span
-                                      className={`block truncate ${
-                                        selected ? "font-medium" : "font-normal"
-                                      }`}
-                                    >
-                                      {person.name}
+                      <h3>
+                        <strong>Assignee</strong>
+                      </h3>
+                      <Listbox
+                        value={selectedPerson}
+                        onChange={setSelectedPerson}
+                      >
+                        <Listbox.Button className="w-full border rounded-md py-4 px-3 my-2 text-gray-700 text-base text-left">
+                          {selectedPerson}
+                        </Listbox.Button>
+                        <Listbox.Options className="absolute mt-1 max-h-60 rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+                          {memberState?.members.map((person) => (
+                            <Listbox.Option
+                              key={person.id}
+                              className={({ active }) =>
+                                `relative cursor-default select-none py-2 pl-10 pr-4 ${
+                                  active
+                                    ? "bg-blue-100 text-blue-900"
+                                    : "text-gray-900"
+                                }`
+                              }
+                              value={person.name}
+                            >
+                              {({ selected }) => (
+                                <>
+                                  <span
+                                    className={`block truncate ${
+                                      selected ? "font-medium" : "font-normal"
+                                    }`}
+                                  >
+                                    {person.name}
+                                  </span>
+                                  {selected ? (
+                                    <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-600">
+                                      <CheckIcon
+                                        className="h-5 w-5"
+                                        aria-hidden="true"
+                                      />
                                     </span>
-                                    {selected ? (
-                                      <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-blue-600">
-                                        <CheckIcon
-                                          className="h-5 w-5"
-                                          aria-hidden="true"
-                                        />
-                                      </span>
-                                    ) : null}
-                                  </>
-                                )}
-                              </Listbox.Option>
-                            ))}
-                          </Listbox.Options>
-                        </Listbox>
-
-
+                                  ) : null}
+                                </>
+                              )}
+                            </Listbox.Option>
+                          ))}
+                        </Listbox.Options>
+                      </Listbox>
 
                       <button
                         type="submit"
@@ -215,17 +213,15 @@ const memberState = useMembersState();
                       </button>
                     </form>
                   </div>
-                  
-                  <NewComment/>
-                  <CommentList/>
-                  
+
+                  <NewComment />
+                  <CommentList />
                 </Dialog.Panel>
               </Transition.Child>
             </div>
           </div>
         </Dialog>
       </Transition>
-
     </>
   );
 };

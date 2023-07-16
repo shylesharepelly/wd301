@@ -7,28 +7,25 @@ import { TaskDetails } from "../../context/task/types";
 import "./TaskCard.css";
 import { Link } from "react-router-dom";
 
-
 const Container = (
-    props: React.PropsWithChildren<{
-      task: TaskDetails;
-      index: number;
-    }>
-  ) => {
-    return (
-      <Draggable index={props.index} draggableId={`${props.task.id}`}>
-        {(provided) => (
-          <Task
-            task={props.task} 
-            ref={provided.innerRef}
-            {...provided.draggableProps}
-            {...provided.dragHandleProps}
-          />
-        )}
-      </Draggable>
-    );
-  };
-
-
+  props: React.PropsWithChildren<{
+    task: TaskDetails;
+    index: number;
+  }>
+) => {
+  return (
+    <Draggable index={props.index} draggableId={`${props.task.id}`}>
+      {(provided) => (
+        <Task
+          task={props.task}
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        />
+      )}
+    </Draggable>
+  );
+};
 
 const Task = forwardRef<
   HTMLDivElement,
@@ -38,7 +35,7 @@ const Task = forwardRef<
   const { projectID } = useParams();
   const { task } = props;
   return (
-    <div  ref={ref} {...props}  className="m-2 flex">
+    <div ref={ref} {...props} className="m-2 flex">
       <Link
         className="TaskItem w-full shadow-md border border-slate-100 bg-white"
         to={`tasks/${task.id}`}
@@ -53,8 +50,8 @@ const Task = forwardRef<
               Description: {task.description}
             </p>
             <p className="text-sm text-slate-500">
-            Assignee: {task.assignedUserName ?? "-"}
-          </p>
+              Assignee: {task.assignedUserName ?? "-"}
+            </p>
           </div>
           <button
             className="deleteTaskButton cursor-pointer h-4 w-4 rounded-full my-5 mr-5"
@@ -82,11 +79,6 @@ const Task = forwardRef<
       </Link>
     </div>
   );
-}
-);
-
-
-
-
+});
 
 export default Container;

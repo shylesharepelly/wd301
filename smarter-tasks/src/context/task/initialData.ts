@@ -26,7 +26,7 @@ const initialData: ProjectData = {
       dueDate: "",
       state: "in_progress",
       assignee: undefined,
-      assignedUserName: undefined
+      assignedUserName: undefined,
     },
     "2": {
       id: 2,
@@ -35,7 +35,7 @@ const initialData: ProjectData = {
       dueDate: "",
       state: "pending",
       assignee: undefined,
-      assignedUserName: undefined
+      assignedUserName: undefined,
     },
   },
   columnOrder: ["pending", "in_progress", "done"],

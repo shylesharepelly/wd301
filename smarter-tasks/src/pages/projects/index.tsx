@@ -10,7 +10,7 @@ const Projects = () => {
         <NewProject />
       </div>
       <ProjectList />
-    </> 
-  )
-}
+    </>
+  );
+};
 export default Projects;

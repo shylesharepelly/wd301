@@ -6,7 +6,7 @@ import { Outlet } from "react-router-dom";
 
 const ProjectDetailsIndex: React.FC = () => {
   return (
-      <TasksProvider>
+    <TasksProvider>
       <ProjectDetails />
       <Outlet />
     </TasksProvider>
