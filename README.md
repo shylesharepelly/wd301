@@ -4,12 +4,13 @@ Smarter-Tasks
 Smarter-Tasks is a web app used for project management 
 This is a web Application developed using typescript based on WD301 pupilfirst course React with Typescript.
 You can run it using commands
-``` cd smarter-tasks
+```
+cd smarter-tasks
     npm start
 ```
 You can find the live deployed link here
-https://main--astounding-salamander-95d84d.netlify.app/
-You can create any number of projects
+https://main--astounding-salamander-95d84d.netlify.app/ \n
+You can create any number of projects\n
 ![2023-08-04 (1)](https://github.com/shylesharepelly/wd301/assets/66762947/4db166b1-23a0-4c8d-b0c2-03c138d4e841)
 You can create any number of users
 ![2023-08-04 (5)](https://github.com/shylesharepelly/wd301/assets/66762947/40a89213-4da8-4579-917f-ffd7ca839429)
