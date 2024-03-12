@@ -1,0 +1,38 @@
+{
+    "translation": 
+    {
+
+      "Smarter Tasks": "Smarter Tasks",
+      "Projects": "Projects",
+      "Members": "Members",
+      "New Project": "New Project",
+      "Users": "Users",
+      "Create new project": "Create new project",
+      "Enter project name...": "Enter project name...",
+      "Submit": "Submit",
+      "Cancel": "Cancel",
+      "Pending": "Pending",
+      "In progress": "In progress",
+      "Done": "Done",
+      "New Task": "New Task",
+      "Create new Task": "Create new Task",
+      "Enter title": "Enter title",
+      "Enter description": "Enter description",
+      "Description": "Description",
+      "Assignee": "Assignee",
+      "Update": "Update",
+      "add comment to this task": "add comment to this task",
+      "Add Comment": "Add Comment",
+      "Comments": "Comments",
+      "New Member": "New Member",
+      "Create new user": "Create new user",
+      "Enter username...": "Enter username...",
+      "Enter user email...": "Enter user email...",
+      "Enter user password...": "Enter user password...",
+      "Profile": "Profile",
+      "Sign out": "Sign out",
+      "Loading...":"Loading...",
+      "This field is required":"This field is required",
+      "Enter due date":"Enter due date"
+    }
+  }

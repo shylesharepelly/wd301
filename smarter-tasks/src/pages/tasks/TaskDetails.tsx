@@ -12,6 +12,7 @@ import { useMembersState } from "../../context/members/context";
 import { fetchComments } from "../../context/comment/actions";
 import CommentList from "./CommentList";
 import NewComment from "./NewComment";
+import { useTranslation } from "react-i18next";
 
 // Helper function to format the date to YYYY-MM-DD format
 const formatDateForPicker = (isoDate: string) => {
@@ -30,7 +31,7 @@ type TaskFormUpdatePayload = TaskDetailsPayload & {
 
 const TaskDetails = () => {
   let [isOpen, setIsOpen] = useState(true);
-
+  const { t } = useTranslation();
   const commentDispatch = useCommentsDispatch();
 
   let { projectID, taskID } = useParams();
@@ -122,14 +123,14 @@ const TaskDetails = () => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Task Details
+                    {t("Task Details")}
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
                       <input
                         type="text"
                         required
-                        placeholder="Enter title"
+                        placeholder={t("Enter title")}
                         id="title"
                         {...register("title", { required: true })}
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
@@ -137,7 +138,7 @@ const TaskDetails = () => {
                       <input
                         type="text"
                         required
-                        placeholder="Enter description"
+                        placeholder={t("Enter description")}
                         id="description"
                         {...register("description", { required: true })}
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
@@ -145,14 +146,14 @@ const TaskDetails = () => {
                       <input
                         type="date"
                         required
-                        placeholder="Enter due date"
+                        placeholder={t("Enter due date")}
                         id="dueDate"
                         {...register("dueDate", { required: true })}
                         className="w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue"
                       />
 
                       <h3>
-                        <strong>Assignee</strong>
+                        <strong>{t("Assignee")}</strong>
                       </h3>
                       <Listbox
                         value={selectedPerson}
@@ -202,14 +203,14 @@ const TaskDetails = () => {
                         type="submit"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Update
+                        {t("Update")}
                       </button>
                       <button
                         type="submit"
                         onClick={closeModal}
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Cancel
+                        {t("Cancel")}
                       </button>
                     </form>
                   </div>

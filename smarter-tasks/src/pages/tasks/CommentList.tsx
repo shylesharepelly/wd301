@@ -5,7 +5,7 @@ import {
   useCommentsState,
 } from "../../context/comment/context";
 import NewComment from "./NewComment";
-
+import { useTranslation } from "react-i18next";
 import {
   useMembersState,
   useMembersDispatch,
@@ -14,7 +14,7 @@ import {
 const CommentList = () => {
   const commentState = useCommentsState();
   const memberState = useMembersState();
-
+  const { t } = useTranslation();
   const { comments, isLoading, isError, errorMessage } = commentState;
 
   const getUserName = (userid: any) => {
@@ -25,7 +25,7 @@ const CommentList = () => {
   };
 
   if (comments.length === 0 && isLoading) {
-    return <span>Loading...</span>;
+    return <span>{t("Loading...")}</span>;
   }
 
   if (isError) {
@@ -45,7 +45,7 @@ const CommentList = () => {
   return (
     <>
       <h1 className="mb-2 text-xl font-medium tracking-tight text-gray-900 dark:text-black">
-        comments:
+        {t("comments")}:
       </h1>
       {comments.map((comment) => (
         <div key={comment.createdAt} className="comment flex justify-between">

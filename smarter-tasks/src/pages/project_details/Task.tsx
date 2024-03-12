@@ -6,6 +6,7 @@ import { Draggable } from "react-beautiful-dnd";
 import { TaskDetails } from "../../context/task/types";
 import "./TaskCard.css";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 const Container = (
   props: React.PropsWithChildren<{
@@ -13,6 +14,8 @@ const Container = (
     index: number;
   }>
 ) => {
+ 
+
   return (
     <Draggable index={props.index} draggableId={`${props.task.id}`}>
       {(provided) => (
@@ -34,6 +37,7 @@ const Task = forwardRef<
   const taskDispatch = useTasksDispatch();
   const { projectID } = useParams();
   const { task } = props;
+  const { t } = useTranslation();
   return (
     <div ref={ref} {...props} className="m-2 flex">
       <Link
@@ -47,10 +51,10 @@ const Task = forwardRef<
               {new Date(task.dueDate).toDateString()}
             </p>
             <p className="text-sm text-slate-500">
-              Description: {task.description}
+              {t("Description")}: {task.description}
             </p>
             <p className="text-sm text-slate-500">
-              Assignee: {task.assignedUserName ?? "-"}
+              {t("Assignee")}: {task.assignedUserName ?? "-"}
             </p>
           </div>
           <button

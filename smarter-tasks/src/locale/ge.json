@@ -1,0 +1,39 @@
+{
+    "translation": 
+    {
+
+      "Smarter Tasks": "Intelligentere Aufgaben",
+      "Projects": "Projekte",
+      "Members": "Mitglieder",
+      "New Project": "Neues Projekt",
+      "Users": "Benutzer",
+      "Create new project": "Neues Projekt erstellen",
+      "Enter project name...": "Projektnamen eingeben...",
+      "Submit": "Einreichen",
+      "Cancel": "Stornieren",
+      "Pending": "Ausstehend",
+      "In progress": "Im Gange",
+      "Done": "Erledigt",
+      "New Task": "Neue Aufgabe",
+      "Create new Task": "Neue Aufgabe erstellen",
+      "Enter title": "Titel eingeben",
+      "Enter description": "Beschreibung eingeben",
+      "Description": "Beschreibung",
+      "Assignee": "Abtretungsempfängerin",
+      "Update": "Aktualisieren",
+      "add comment to this task": "Kommentar zu dieser Aufgabe hinzufügen",
+      "Add Comment": "Einen Kommentar hinzufügen",
+      "Comments": "Kommentare",
+      "New Member": "Neues Mitglied",
+      "Create new user": "Neuen Benutzer erstellen",
+      "Enter username...": "Benutzernamen eingeben...",
+      "Enter user email...": "Geben Sie die E-Mail-Adresse des Benutzers ein...",
+      "Enter user password...": "Geben Sie das Benutzerpasswort ein...",
+      "Profile": "Profil",
+      "Sign out": "Abmelden",
+      "Loading...":"Wird geladen...",
+      "This field is required":"Dieses Feld ist erforderlich",
+      "Enter due date":"Geben Sie das Fälligkeitsdatum ein"
+
+    }
+  }

@@ -1,14 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useProjectsState } from "../../context/projects/context";
+import { useTranslation } from "react-i18next";
 
 export default function ProjectListItems() {
+  const { t } = useTranslation();
   let state: any = useProjectsState();
   const { projects, isLoading, isError, errorMessage } = state;
   console.log(projects);
 
   if (projects.length === 0 && isLoading) {
-    return <span>Loading...</span>;
+    return <span>{t("Loading...")}</span>;
   }
 
   if (isError) {

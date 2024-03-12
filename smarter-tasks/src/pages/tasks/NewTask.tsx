@@ -6,10 +6,11 @@ import { useProjectsState } from "../../context/projects/context";
 import { useTasksDispatch } from "../../context/task/context";
 import { addTask } from "../../context/task/actions";
 import { TaskDetailsPayload } from "../../context/task/types";
+import { useTranslation } from "react-i18next";
 
 const NewTask = () => {
   let [isOpen, setIsOpen] = useState(true);
-
+  const { t } = useTranslation();
   let { projectID } = useParams();
   let navigate = useNavigate();
 
@@ -73,14 +74,14 @@ const NewTask = () => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Create new Task
+                    {t("Create new Task")}
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
                       <input
                         type="text"
                         required
-                        placeholder="Enter title"
+                        placeholder={t("Enter title")}
                         autoFocus
                         id="title"
                         // Register the title field
@@ -90,7 +91,7 @@ const NewTask = () => {
                       <input
                         type="text"
                         required
-                        placeholder="Enter description"
+                        placeholder={t("Enter description")}
                         autoFocus
                         id="description"
                         // register the description field
@@ -113,13 +114,13 @@ const NewTask = () => {
                         id="newTaskSubmitBtn"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Submit
+                        {t("Submit")}
                       </button>
                       <button
                         onClick={closeModal}
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Cancel
+                        {t("Cancel")}
                       </button>
                     </form>
                   </div>

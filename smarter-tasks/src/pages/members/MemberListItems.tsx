@@ -5,8 +5,11 @@ import {
   useMembersDispatch,
 } from "../../context/members/context";
 import { deleteUser } from "../../context/members/actions";
+import { useTranslation } from "react-i18next";
+
 
 export default function MemberListItems() {
+  const { t } = useTranslation();
   let state: any = useMembersState();
   const dispatchMembers = useMembersDispatch();
 
@@ -14,7 +17,7 @@ export default function MemberListItems() {
   //console.log(members);
   //for loading all users
   if (members.length === 0 && isLoading) {
-    return <span>Loading...</span>;
+    return <span>{t("Loading...")}</span>;
   }
   if (isError) {
     return <span>{errorMessage}</span>;

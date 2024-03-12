@@ -10,7 +10,10 @@ type Inputs = {
   email: string;
   password: string;
 };
+import { useTranslation } from "react-i18next";
+
 const NewMember = () => {
+  const { t } = useTranslation();
   let [isOpen, setIsOpen] = useState(false);
 
   const [error, setError] = useState(null);
@@ -45,7 +48,7 @@ const NewMember = () => {
         onClick={openModal}
         className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-95 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
       >
-        New Member
+        {t("New Member")}
       </button>
       <Transition appear show={isOpen} as={Fragment}>
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
@@ -76,7 +79,7 @@ const NewMember = () => {
                     as="h3"
                     className="text-lg font-medium leading-6 text-gray-900"
                   >
-                    Create new user
+                    {t("Create new user")}
                   </Dialog.Title>
                   <div className="mt-2">
                     <form onSubmit={handleSubmit(onSubmit)}>
@@ -85,49 +88,49 @@ const NewMember = () => {
                       <input
                         type="text"
                         id="name"
-                        placeholder="Enter user name..."
+                        placeholder={t("Enter username...")}
                         autoFocus
                         {...register("name", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
                           errors.name ? "border-red-500" : ""
                         }`}
                       />
-                      {errors.name && <span>This field is required</span>}
+                      {errors.name && <span>{t("This field is required")}</span>}
                       <input
                         type="email"
                         id="email"
-                        placeholder="Enter user email..."
+                        placeholder={t("Enter user email...")}
                         autoFocus
                         {...register("email", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
                           errors.email ? "border-red-500" : ""
                         }`}
                       />
-                      {errors.email && <span>This field is required</span>}
+                      {errors.email && <span>{t("This field is required")}</span>}
                       <input
                         id="password"
                         type="password"
-                        placeholder="Enter user password..."
+                        placeholder={t("Enter user password...")}
                         autoFocus
                         {...register("password", { required: true })}
                         className={`w-full border rounded-md py-2 px-3 my-4 text-gray-700 leading-tight focus:outline-none focus:border-blue-500 focus:shadow-outline-blue ${
                           errors.password ? "border-red-500" : ""
                         }`}
                       />
-                      {errors.password && <span>This field is required</span>}
+                      {errors.password && <span>{t("This field is required")}</span>}
                       <button
                         type="submit"
                         id="create-member-btn"
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-600 px-4 py-2 mr-2 text-sm font-medium text-white hover:bg-blue-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Submit
+                        {t("Submit")}
                       </button>
                       <button
                         type="submit"
                         onClick={closeModal}
                         className="inline-flex justify-center rounded-md border border-transparent bg-blue-100 px-4 py-2 text-sm font-medium text-blue-900 hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                       >
-                        Cancel
+                        {t("Cancel")}
                       </button>
                     </form>
                   </div>

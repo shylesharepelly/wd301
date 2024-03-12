@@ -1,9 +1,10 @@
-import { Fragment, useState, useContext, useEffect } from "react";
+import {SetStateAction, Fragment, useState, useContext, useEffect } from "react";
 import { Disclosure, Menu, Transition, Switch } from "@headlessui/react";
 import { UserCircleIcon } from "@heroicons/react/24/outline";
 import Logo from "../../assets/images/logo.png";
 import { Link, useLocation } from "react-router-dom";
 import { ThemeContext } from "../../context/theme";
+import { useTranslation } from "react-i18next";
 
 const userNavigation = [
   { name: "Profile", href: "#" },
@@ -41,6 +42,13 @@ const Appbar = () => {
     { name: "Projects", href: "/account/projects", current: false },
     { name: "Members", href: "/account/members", current: false },
   ];
+  const { t, i18n } = useTranslation();
+  const [currentLanguage, setCurrentLanguage] = useState(i18n.language);
+
+  const changeLanguage = (language: string) => {
+    i18n.changeLanguage(language);
+    setCurrentLanguage(language);
+  };
 
   return (
     <>
@@ -50,7 +58,7 @@ const Appbar = () => {
             <div className="flex h-16 items-center justify-between">
               <div className="flex items-center">
                 <div className="flex-shrink-0">
-                  <img className="h-8" src={Logo} alt="Smarter Tasks" />
+                  <img className="h-8" src={Logo} alt={t("Smarter Tasks")} />
                 </div>
                 <div className="hidden md:block">
                   <div className="ml-10 flex items-baseline space-x-4">
@@ -69,7 +77,7 @@ const Appbar = () => {
                           )}
                           aria-current={isCurrent ? "page" : undefined}
                         >
-                          {item.name}
+                          {t(item.name)}
                         </Link>
                       );
                     })}
@@ -84,7 +92,7 @@ const Appbar = () => {
                     className={`${enabled ? "bg-slate-400" : "bg-slate-700"}
                       relative inline-flex h-[24px] w-[60px] shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none focus-visible:ring-2  focus-visible:ring-white focus-visible:ring-opacity-75`}
                   >
-                    <span className="sr-only">Use setting</span>
+                    <span className="sr-only">{t("Use setting")}</span>
                     <span
                       aria-hidden="true"
                       className={`${enabled ? "translate-x-9" : "translate-x-0"}
@@ -120,7 +128,7 @@ const Appbar = () => {
                                   "block px-4 py-2 text-sm text-gray-700"
                                 )}
                               >
-                                {item.name}
+                                {t(item.name)}
                               </a>
                             )}
                           </Menu.Item>
@@ -130,6 +138,53 @@ const Appbar = () => {
                   </Menu>
                 </div>
               </div>
+              <Menu>
+                <Menu.Button>
+                  {" "}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    className="w-6 h-6"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"
+                    />
+                  </svg>
+                </Menu.Button>
+                <Menu.Items className="space-y-2">
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${
+                          active ? "bg-gray-100" : ""
+                        } block px-4 py-2 text-sm text-gray-700  ${
+                          currentLanguage === "en"
+                        } ${currentLanguage === "en"}`}
+                        onClick={() => changeLanguage("en")}
+                      >
+                        English
+                      </button>
+                    )}
+                  </Menu.Item>
+                  <Menu.Item>
+                    {({ active }) => (
+                      <button
+                        className={`${active ? "bg-gray-100" : ""} ${
+                          currentLanguage === "ge"
+                        }block px-4 py-2 text-sm text-gray-700`}
+                        onClick={() => changeLanguage("ge")}
+                      >
+                        Deutsch
+                      </button>
+                    )}
+                  </Menu.Item>
+                </Menu.Items>
+              </Menu>
             </div>
           </div>
         )}
